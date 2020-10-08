@@ -45,7 +45,7 @@ class PostsController extends Controller
 
         $post->save();
 
-        return redirect('/posts')->with('mensaje', 'El Post se ha creado con exito!');
+        return redirect('/posts')->with('mensaje', '¡El Post se ha creado con exito!');
 
     }
 
@@ -93,6 +93,10 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        $post->delete();
+
+        return redirect('/posts')->with('mensaje', '¡El Post se ha eliminado exitosamente!');
     }
 }

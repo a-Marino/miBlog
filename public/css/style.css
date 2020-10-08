@@ -14,6 +14,27 @@
 
 }
 
+.btnEliminarPost {
+
+    float: right;
+    margin-right: 50px;
+    margin-top: 50px;
+    background-color: red;
+    border: none;
+    border: 1px solid black;
+    border-radius: 2px;
+    transition: .2s;
+
+}
+
+.btnEliminarPost:hover {
+
+    font-weight: bold;
+    transform: scale(1.1);
+    transition: .2s;
+
+}
+
 .titulo {
 
     margin-left: 30px;
