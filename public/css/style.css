@@ -1,0 +1,14 @@
+.btnCrearPost {
+
+    float: right;
+    margin-right: 50px;
+    padding: 5px;
+    
+}
+
+.titulo {
+
+    margin-left: 30px;
+    text-decoration: underline;
+
+}
