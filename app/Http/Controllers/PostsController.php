@@ -39,7 +39,14 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Post();
+        $post->titulo = request('titulo');
+        $post->contenido = request('contenido');
+
+        $post->save();
+
+        return redirect('/posts')->with('mensaje', 'El Post se ha creado con exito!');
+
     }
 
     /**
@@ -50,7 +57,9 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        return view('posts.show', ['post' => $post]);
     }
 
     /**

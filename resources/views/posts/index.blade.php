@@ -9,9 +9,11 @@
 
 <br>
 
+<h3 class='session'>{{ session('mensaje') }}</h3>
+
 @foreach ($posts as $post)
 
-    <a href="">{{ $post->titulo }}</a>
+    <a href="{{route('posts.show', $post->id)}}" class='posts'>{{ $post->titulo }}</a>
     <br>
 
 @endforeach
