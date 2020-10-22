@@ -9,7 +9,7 @@
 
 <br>
 
-<h3 class='session'>{{ session('mensaje') }}</h3>
+@if (count($posts) > 0)
 
 @foreach ($posts as $post)
 
@@ -17,5 +17,11 @@
     <br>
 
 @endforeach
+
+@else 
+
+   <h3 class="session">No tienes ningun post.</h3>
+
+@endif
 
 @endsection

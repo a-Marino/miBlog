@@ -39,6 +39,12 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate($request, [
+            'titulo' => 'required',
+            'contenido' => 'required',
+        ]);
+
         $post = new Post();
         $post->titulo = request('titulo');
         $post->contenido = request('contenido');
@@ -70,7 +76,9 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        return view('posts.edit', ['post' => $post]);
     }
 
     /**
@@ -82,7 +90,18 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'titulo' => 'required',
+            'contenido' => 'required',
+        ]);
+
+        $post = Post::findOrFail($id);
+        $post->titulo = request('titulo');
+        $post->contenido = request('contenido');
+
+        $post->save();
+
+        return redirect('/posts')->with('mensaje', '¡El Post se ha editado con exito!');
     }
 
     /**
@@ -97,6 +116,6 @@ class PostsController extends Controller
 
         $post->delete();
 
-        return redirect('/posts')->with('mensaje', '¡El Post se ha eliminado exitosamente!');
+        return redirect('/posts')->with('success', '¡El Post se ha eliminado exitosamente!');
     }
 }
