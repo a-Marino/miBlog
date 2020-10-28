@@ -45,6 +45,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('pages.index') }}">{{ __('All Posts') }}</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('tags.index') }}">{{ __('All Tags') }}</a>
+                            </li>
 
                         <!-- Authentication Links -->
                         @guest
@@ -68,6 +71,9 @@
                                     </a>
                                     <a class="dropdown-item" href="{{ route('posts.create') }}">
                                         {{ __('Crear nuevo Post') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('tags.create') }}">
+                                        {{ __('Crear nuevo Tag') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

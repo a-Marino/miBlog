@@ -27,3 +27,5 @@ Route::get('/index', [App\Http\Controllers\PagesController::class, 'index'])->na
 
 Route::resource('posts', 'App\Http\Controllers\PostsController');
 
+Route::resource('tags', 'App\Http\Controllers\TagsController');
+
