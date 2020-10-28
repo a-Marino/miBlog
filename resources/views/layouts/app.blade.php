@@ -43,7 +43,7 @@
                                 <a class="nav-link" href="{{ route('pages.about') }}">{{ __('About') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('pages.index') }}">{{ __('All Posts') }}</a>
+                                <a class="nav-link" href="{{ route('posts.index') }}">{{ __('All Posts') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('tags.index') }}">{{ __('All Tags') }}</a>
@@ -66,7 +66,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('posts.index') }}">
+                                    <a class="dropdown-item" href="{{ route('home') }}">
                                         {{ __('Mis Posts') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('posts.create') }}">

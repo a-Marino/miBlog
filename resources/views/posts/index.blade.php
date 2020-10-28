@@ -3,7 +3,7 @@
 
 <script src="{{ asset('js/postsIndex.js') }}"></script>
 
-<h1 class='titulo'>Mis Posts</h1>
+<h1 class='titulo'>Posts</h1>
 
 <input type="button" value="Crear nuevo Post" class="btnCrearPost" id="crearPost">
 
