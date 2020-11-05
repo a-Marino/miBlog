@@ -6,7 +6,6 @@
 <h1 class="titulo">{{ $post->titulo }}</h1>
 <p class="contenido">{{ $post->contenido }}</p>
 
-
 @if (!Auth::guest())
 
     @if (Auth::user()->id == $post->user_id)

@@ -10,4 +10,10 @@ class Tag extends Model
     use HasFactory;
 
     protected $table = 'tags';
+
+    public function posts() {
+
+        return $this->belongsToMany('\App\Models\Post')->withTimestamps();
+
+    }
 }
