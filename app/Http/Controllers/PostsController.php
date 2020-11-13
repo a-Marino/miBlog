@@ -52,12 +52,29 @@ class PostsController extends Controller
         $this->validate($request, [
             'titulo' => 'required',
             'contenido' => 'required',
+            'portada' => 'image|nullable|max:1999'
         ]);
+
+        if ($request->hasFile('portada')) {
+
+            $nombre_original = $request->file('portada')->getClientOriginalName();
+            $nombre = pathInfo($nombre_original, PATHINFO_FILENAME);
+            $extension = $request->file('portada')->getClientOriginalExtension();
+            $nombre_a_guardar = $nombre.time().'.'.$extension;
+
+            $request->file('portada')->storeAs('public/portadas', $nombre_a_guardar);
+
+        } else {
+
+            $nombre_a_guardar = 'noimage.png';
+
+        }
 
         $post = new Post();
         $post->titulo = request('titulo');
         $post->contenido = request('contenido');
         $post->user_id = auth()->user()->id;
+        $post->path_imagen = $nombre_a_guardar;
         $post->save();
         $post->tags()->sync(request('tags'));
 
@@ -90,7 +107,7 @@ class PostsController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        if(auth()->user()-id !== $post->user_id)
+        if(auth()->user()->id !== $post->user_id)
 
             return redirect('/posts')->with('error', 'Acceso no autorizado');
 
@@ -117,7 +134,6 @@ class PostsController extends Controller
         $post = Post::findOrFail($id);
         $post->titulo = request('titulo');
         $post->contenido = request('contenido');
-
         $post->save();
 
         return redirect('/posts')->with('mensaje', '¡El Post se ha editado con exito!');

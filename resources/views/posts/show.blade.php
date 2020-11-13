@@ -4,6 +4,7 @@
 <script src="{{ asset('js/postsShow.js') }}"></script>
 
 <h1 class="titulo">{{ $post->titulo }}</h1>
+<img src="/storage/portadas/{{$post->path_imagen}}" id='portada'>
 <p class="contenido">{{ $post->contenido }}</p>
 
 @if (!Auth::guest())

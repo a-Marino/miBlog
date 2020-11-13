@@ -5,7 +5,7 @@
 
 <div class="form">
 
-<form action="/posts" method="post">
+<form action="/posts" method="post" enctype="multipart/form-data">
 @csrf
     <label for="titulo">Titulo:</label>
     <input type="text" name="titulo"> <br>
@@ -22,6 +22,12 @@
 
         @endforeach 
     </fieldset>
+    <br>
+    <label for="portada">Seleccione una foto de portada:</label>
+    <div class="btnFile">
+        <input type="file" name="portada" id="portada">
+
+    </div>
     <input type="submit" value="Crear Post" class='btnCrearPost2'>
 </form>
 

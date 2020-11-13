@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddExtraFieldToPostTagTable extends Migration
+class AddImagenToPostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddExtraFieldToPostTagTable extends Migration
      */
     public function up()
     {
-        Schema::table('post_tag', function (Blueprint $table) {
-            $table->string('extra')->nullable();
+        Schema::table('posts', function (Blueprint $table) {
+            $table->string('path_imagen')->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class AddExtraFieldToPostTagTable extends Migration
      */
     public function down()
     {
-        Schema::table('post_tag', function (Blueprint $table) {
-            $table->dropColumn('extra');
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropColumn('path_imagen');
         });
     }
 }
